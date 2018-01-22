@@ -31,7 +31,7 @@ var myButton = document.querySelector('#meu-botao');
 var myHeading = document.querySelector('#h1-teste');
 // Armazenando uma referência ao elemento H1
 
-function setUsername(){
+function setUserName(){
   var myName = prompt('Please enter your name');
   /* A função prompt() abre uma caixa de diálogo como o Alert e guarda 
     os dados inseridos quando o botão OK é pressionado */
@@ -51,14 +51,15 @@ if(!localStorage.getItem('name')){
 } else {
   var storedName = localStorage.getItem('name');
   /* Se ele já existir (isto é, se o usuário já tiver digitado quando visitou o site anteriormente), 
-    nós recuperamos o nome guardado usando getItem() */
+    nós recuperamos o nome guardado usando getItem() 
+    O localStorage se refere ao item (name) ser salvo na máquina */
   myHeading.innerHTML = 'Mozilla is cool ' + storedName;
   /* Associamos o innerHTML do cabeçalho a uma string, mais o nome do usuário, 
     assim como fizemos dentro de setUserName() */
 }
 
 myButton.onclick = function(){
-  setUsername();
+  setUserName();
   /* Finalmente, colocando o gerenciador de evento onclick no botão, para que quando clicado, 
     ele execute a função setUserName(). Isso permite ao usuário dar um novo nome 
     sempre que quiserem ao pressionar o botão */
