@@ -116,5 +116,33 @@
     // Adiciona um evento nesse botão recém criado, que ao clicar chama a função "reiniciarJogo"
     botaoReinicio.addEventListener('click', reiniciarJogo);
   }
+  // Função que reinicia o jogo de fato
+  function reiniciarJogo(){
+    // Seta a variável contagemPalpites para 1
+    contagemPalpites = 1;
+    /* Pega os elementos <p> da div "resultadoParas" e joga numa variável 
+    "que é um array desses elementos" */
+    var reiniciarParas = document.querySelectorAll('.resultadoParas p');
+    /* Agora com os <p> selecionados em um array, ele percorre esse array e "limpa" 
+    as propriedades de texto deles*/
+    for(var i = 0; i < reiniciarParas.length; i++){
+      reiniciarParas[i].textContent = '';
+    }
+    // Remove o botão de reset do documento
+    botaoReinicio.parentNode.removeChild(botaoReinicio);
+
+    // Habilita novamente o campo
+    campoPalpite.disabled = false;
+    // Volta à vida o botão de envio
+    envioPalpite.disabled = false;
+    // Limpa o campo de palpite
+    campoPalpite.value = '';
+    // Dá foco novamente ao campo
+    campoPalpite.focus();
+    // Bota o estilo de fundo do resultado pra branco
+    ultimoResultado.style.backgroundColor = 'white';
+    // Joga um novo número aleatório na variável "numeroAleatorio"
+    numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+  }
 </script>
 </html>
