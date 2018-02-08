@@ -1,19 +1,30 @@
-// Selecionando os elementos HTML, pegando seus valores e inserindo nas variáveis 
 
+// Aqui está sendo criado um número randômico e jogado na variável "numeroAleatorio"
 var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
 
+// Selecionando o elemento <p> "guesses" e jogando sua referência na variável "palpites"
 var palpites = document.querySelector('.guesses');
+
+// Selecionando o elemento <p> "lastResult" e jogando sua referência na variável "ultimoResultado"
 var ultimoResultado = document.querySelector('.lastResult');
+
+// Selecionando o elemento <p> "lowOrHi" e jogando sua referência na variável "baixoOuAlto"
 var baixoOuAlto = document.querySelector('.lowOrHi');
 
+// Selecionando o elemento <input> "guessSubmit" e jogando sua referência na variável "envioPalpite"
 var envioPalpite = document.querySelector('.guessSubmit');
+
+// Selecionando o elemento <input> "guessField" e jogando sua referência na variável "campoPalpite"
 var campoPalpite = document.querySelector('.guessField');
 
+// Instanciando a variavel para contagem dos palpites e inicializando em 1
 var contagemPalpites = 1;
+
+// Instanciando uma variável qualquer para ser usada futuramente para reiniciar o jogo
 var botaoReinicio;
 
-// Função que confere o número do palpite inserido
 
+// Função que confere o número do palpite inserido
 function conferirPalpite() {
   // Coloca o valor do "campoPalpite" garantido como um número, na variável "palpiteUsuario"
   var palpiteUsuario = Number(campoPalpite.value);
