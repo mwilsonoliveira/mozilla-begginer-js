@@ -17,6 +17,6 @@ function ativaItem(e){
 meuBotao.addEventListener("click", criaNovoItem)
 
 function criaNovoItem(){
-  minhaLista.innerHTML += "<li>Novo Item " + contadorNovoItem + "</li>"
+  minhaLista.innerHTML += "<a href='#'><li>Novo Item " + contadorNovoItem + "</li></a>"
   contadorNovoItem++
 }
