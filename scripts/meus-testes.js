@@ -1,4 +1,5 @@
 var fade = document.getElementById("p-fade");
+var testNoFade = 28;
 
 function clicaAlert(){
   alert("Hahahahah! Aconteceu!");
@@ -7,5 +8,6 @@ function clicaAlert(){
 }
 
 function clicaFade(){
+  alert("fadeou! " + testNoFade);
   fade.hidden = false;
 }
