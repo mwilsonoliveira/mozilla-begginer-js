@@ -6,7 +6,7 @@ const Teste = (props) => {
 
 const Teste2 = (props) => {
   console.log(props.name)
-  //const theSplit = props.name.split(',')
+  //const theSplit = props.name.split(','
   return(
     <div>
       <p>{props.name[0]}</p>
