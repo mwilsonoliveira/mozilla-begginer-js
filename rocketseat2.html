@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Rocketseat</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="app">
+      <button onclick="criaBoxes()">Cria Boxes</button>
+    </div>
+
+    <script>
+      //Exercício 01
+
+      //captura uma parte do documento pra eu jogar coisa nele
+      var wrap = document.querySelector('.app');
+      
+      function criaBoxes() {
+        //cria a caixa
+        var box = document.createElement('div');
+        //estiliza a caixa
+        box.style.margin = '5px';
+        box.style.width = '100px';
+        box.style.height = '100px';
+        box.style.backgroundColor = '#f00';
+        //usa a função aí de baixo pra mudar a cor dos troço.
+        //joga 'append' onde eu quero
+        wrap.appendChild(box);
+      }
+      //Exercício 02
+      var outraCor = box.style.backgroundColor = '#f88';
+      box.onmouseover(outraCor);
+
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+          for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        }
+      var newColor = getRandomColor(); // #E943F0
+
+    </script>
+  </body>
+</html>
