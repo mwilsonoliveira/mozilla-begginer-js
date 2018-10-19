@@ -4,35 +4,28 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Rocketseat</title>
+    <title>Rocketseat 2</title>
     <link href="styles/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="app">
-      <button onclick="criaBoxes()">Cria Boxes</button>
+      <h1>Rocketseat</h1>
+      <h4>Exercício 1 e 2</h2>
+      <button id="criaBoxes">Cria Boxes</button>
+      <div id="boxes"></div>
+      <br />
+      <h4>Exercício 3 e 4</h2>
+      <input type="text" id="campo">
+      <button onClick="adicionarNome()">Adicionar Nome</button>
+      <div id="lista"></div>
     </div>
 
-    <script>
-      //Exercício 01
+    <br />
+    <br />
+    <a href="index.html">Voltar</a>
 
-      //captura uma parte do documento pra eu jogar coisa nele
-      var wrap = document.querySelector('.app');
-      
-      function criaBoxes() {
-        //cria a caixa
-        var box = document.createElement('div');
-        //estiliza a caixa
-        box.style.margin = '5px';
-        box.style.width = '100px';
-        box.style.height = '100px';
-        box.style.backgroundColor = '#f00';
-        //usa a função aí de baixo pra mudar a cor dos troço.
-        //joga 'append' onde eu quero
-        wrap.appendChild(box);
-      }
-      //Exercício 02
-      var outraCor = box.style.backgroundColor = '#f88';
-      box.onmouseover(outraCor);
+    <script>
+      //Exercício #1 e #2
 
       function getRandomColor() {
         var letters = "0123456789ABCDEF";
@@ -42,7 +35,97 @@
           }
           return color;
         }
-      var newColor = getRandomColor(); // #E943F0
+
+      //captura uma parte do documento pra eu jogar coisa nele
+      var btnCriaBoxes = document.getElementById('criaBoxes');
+      var boxesElement = document.getElementById('boxes');
+
+      btnCriaBoxes.onclick = function () {
+        //cria a caixa
+        var box = document.createElement('div');
+        //estiliza a caixa, que já é uma div
+        box.style.margin = '5px';
+        box.style.width = '100px';
+        box.style.height = '100px';
+        box.style.backgroundColor = '#f00';
+        //quando o mouse tiver em cima desse bagulho que
+        //to instanciando ele pega e chama a função que 
+        //pega uma cor aleatória e joga numa estilização
+        //desse bagulho.
+        box.onmouseover = function () {
+          box.style.backgroundColor = getRandomColor();
+        }
+        //joga 'append' o bagulho onde eu quero.
+        //no caso dentro da div 'boxes'
+        boxesElement.appendChild(box);
+      };
+
+      //Exercício #3
+      
+      //arreio de nomes
+      var nomes = ["Wilson", "Wilson o the best", "Marcão das taquareira"];
+      //pega a div que vai abrigar os troço
+      var listaUls = document.getElementById('lista');
+      
+      //for que percorre os itens do array
+      for(i=0;i<nomes.length;i++) {
+        //cria um elemento UL e joga numa var item
+        var item = document.createElement('ul');
+        //pega a propriedade textContent da var item
+        //e joga o nome na 'i' pra dentro dela
+        item.textContent = nomes[i];
+        //joga na div os uls criados
+        listaUls.appendChild(item);
+      };
+
+      /* Também pode se fazer assim, que diga-se de passagem
+      é muito mais massa com esse "for" diferente!
+
+      var listElement = document.querySelector('ul');
+      var inputElement = document.querySelector('input');
+
+      for (nome of nomes) {
+        var liElement = document.createElement('li');
+        var textElement = document.createTextNode(nome);
+        
+        liElement.appendChild(textElement);
+        listElement.appendChild(liElement);
+      }
+
+      */
+      
+      //Exercício #4
+
+      function adicionarNome() {
+        //Pega o input e joga numa variavel
+        var nome = document.getElementById('campo');
+        //Pega atributo value e dá um push no array
+        nomes.push(nome.value);
+        
+        //Cria um UL e joga na variavel item
+        var item = document.createElement('ul');
+        //Pega o conteudo do input e joga nesse conteudo da UL.
+        item.textContent = nome.value;
+        //Joga o item com os parâmetros na div lista
+        listaUls.appendChild(item);
+        //Limpa o campo
+        nome.value = '';
+      }
+      
+      /* Também pode se fazer assim
+      
+      var listElement = document.querySelector('ul');
+      var inputElement = document.querySelector('input');
+
+      function adicionar() {
+        addItem(inputElement.value);
+        inputElement.value = "";
+      }
+      for (nome of nomes) {
+        addItem(nome);
+      }
+      
+      */
 
     </script>
   </body>
