@@ -1,5 +1,6 @@
-var fade = document.getElementById("p-fade");
-var testNoFade = 28;
+var text = document.getElementById("p-fade"),
+    linkFade = document.getElementById("linkFade"),
+    testNoFade = 28;
 
 function clicaAlert(){
   alert("Hahahahah! Aconteceu!");
@@ -7,7 +8,24 @@ function clicaAlert(){
   link.textContent  = "Já era, aconteceu!";
 }
 
-function clicaFade(){
-  alert("fadeou! " + testNoFade);
-  fade.hidden = false;
+// classes show e hide estão no CSS, o JavaScript utiliza elas
+
+function fadeIn(el) {
+  el.classList.add('show');
+  el.classList.remove('hide');
 }
+
+function fadeOut(el) {
+  el.classList.add('hide');
+  el.classList.remove('show');
+}
+
+linkFade.addEventListener('click', function() {
+  if (text.className.indexOf('hide') !== -1) {
+    fadeIn(text);
+    this.innerHTML = 'Fade Out';
+  } else {
+    fadeOut(text);
+    this.innerHTML = 'Fade In';
+  }
+});
