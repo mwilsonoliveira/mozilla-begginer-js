@@ -15,10 +15,28 @@
         <div id="cidades">
 
         </div>
+
+        <div id="unisinos">
+
+        </div>
+
+        <form id="form-cep" onsubmit="searchCep()" method="POST">
+            <input type="text" name="cep" id="cep" placeholder="Informe o cep">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <div id="preloader" style="display: none;">
+            Carregando...
+        </div>
+
+    </br>
+
+        <div id="results" style="display: none;"></div>
+        <div id="error" style="display: none;"></div>
         
-        <br />
+    <br />
+    
         <a href="../index.html">Voltar</a>
-        
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="../scripts/testes-api.js"></script>
     </body>
