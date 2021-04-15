@@ -21,16 +21,16 @@ function searchCep () {
     let cep = document.getElementById('cep').value;
 
     // Inicia requisição AJAX com o axios
-    axios.get(`http://api.postmon.com.br/v1/cep/${cep}`, {})
+    axios.get(`https://api.postmon.com.br/v1/cep/${cep}`, {})
             .then(response => {
                 showResults(response.data);
             })
             .catch(error => {
                 // Mostra a div com o erro
                 document.getElementById('error').style.display = 'block';
-        
+                
                 // Mostra a mensagem
-                document.getElementById('error').innerHTML = 'Erro inesperado';
+                document.getElementById('error').innerHTML = error;
             })
             .finally(() => endPreloader ())
 
